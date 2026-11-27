@@ -1,0 +1,164 @@
+#logo {
+    position: fixed;
+    top: 0;
+    left: 60px;            
+    display: flex;         
+    align-items: center;
+    width: calc(100% - 60px); 
+    height: 60px;          
+    background-color: #EFF0EA;
+    z-index: 900;         
+    border-bottom: 1px solid #C5CBB8;
+}
+h1 {
+    height: 60px;         
+    line-height: 60px;   
+    padding: 0 15px;      
+    font-size: 24px;  
+    white-space: nowrap;   
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    height: 5000px;
+    background-color: #EFF0EA;
+    padding-top: 60px;    
+    padding-left: 60px;  
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60px;         
+    height: 100vh;
+    background-color: #DCE0D2;
+    color: #2C3028;
+    padding: 20px 16px;  
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+.hamberger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    flex-shrink: 0;    
+}
+
+.hamberger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #2C3028;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    opacity: 0;          
+    pointer-events: none; 
+    transition: opacity 0.2s ease;
+}
+
+.menu li a {
+    display: block;
+    color: #2C3028;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    white-space: nowrap;  
+    transition: background 0.2s;
+}
+
+.menu li a:hover {
+    background-color: #C5CBB8;
+    color: #111111;
+}
+
+.navbar:has(#menu-toggle:checked) {
+    width: 220px;         
+}
+
+#menu-toggle:checked ~ .menu {
+    opacity: 1;
+    pointer-events: auto;  
+}
+
+.banner-container {
+    display: flex;
+    width: 100%;
+    height: 500px;       
+}
+
+.banner-container img {
+    height: 100%;     
+    flex: 1;    
+    min-width: 0;     
+    object-fit: cover;
+}
+#testbox {
+    margin-top: 50px;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 80px;
+    min-height: 100vh;
+} 
+
+@media (max-width: 768px) {
+    body{
+        padding-left: 0px;
+    }
+    .navbar {
+        height: 60px;   
+        padding: 20px 16px;
+    }
+    .navbar:has(#menu-toggle:checked) {
+        height: auto;
+        min-height: 100vh;
+    }
+    .banner-container {
+        height: auto;        
+    }
+
+    .banner-container img:nth-child(1) {
+        width: 100%;         
+        height: auto;       
+        max-width: none;
+    }
+
+    .banner-container img:nth-child(2) {
+        display: none;
+    }
+}
